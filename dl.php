@@ -19,6 +19,10 @@ if(empty($m->get($key))){
 $database->update("beats", [ "downloads[+]" => 1],["id" => $data[0]["id"]]);
 $m->set($key, 100, 3600);
 }
+	
+if($_GET["type"] == "sabermap"){
+	header('Content-Disposition: attachment; filename="' . $data[0]["id"] . '.sabermap"');
+}
 
 header("Location: files/" . $data[0]["id"] . ".zip");
 die();
