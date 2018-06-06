@@ -21,10 +21,15 @@ $m->set($key, 100, 3600);
 }
 	
 if($_GET["type"] == "sabermap"){
-	header('Content-Disposition: attachment; filename="' . $data[0]["id"] . '.sabermap"');
+    header('Content-type: application/sabermap');
+    header('Content-Disposition: attachment; filename="' . $data[0]["id"] . '.sabermap"');
+} else {
+    header('Content-type: application/zip');
+    header('Content-Disposition: attachment; filename="' . $data[0]["id"] . '.zip"');
 }
 
-header("Location: files/" . $data[0]["id"] . ".zip");
+readfile("files/" . $data[0]["id"] . ".zip");
+	
 die();
 
 }else{
