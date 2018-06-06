@@ -47,7 +47,10 @@ if(empty($bt[0]["beatname"])){die("<br><br><br><br><br><br><br><br><center><h1>S
   <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Stars <?php echo number_format($bt[0]["upvotes"]); ?>
 </button>
 <?php if(!empty($_SESSION["userdb"][0]["id"])){ ?> </a> <?php } ?><br><br>
-    <p><a class="btn btn-default" href="<?php echo 'dl.php?id='.$bt[0]['id']; ?>" role="button">Download File</a></p><p>
+    <p>
+	<a class="btn btn-default" href="<?php echo 'dl.php?id='.$bt[0]['id']; ?>" role="button" title="For manual installation">Download Zip</a>
+        <a class="btn btn-default" href="<?php echo 'dl.php?id='.$bt[0]['id']; ?>" role="button" title="Automatic installation, requires newest ModInstaller version">Install Sabermap</a>
+    </p><p>
 </td>
   </tr>
 </table>
